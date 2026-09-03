@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqualina Beauty - Cosméticos Premium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-rosa: #f5b5a0;
+            --color-crema: #fef9f3;
+            --color-marron: #d4998a;
+            --color-oscuro: #3d2817;
+            --color-gris: #f0e8e0;
+            --color-whatsapp: #25D366;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--color-oscuro);
+            background-color: var(--color-crema);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--color-crema);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(61, 40, 23, 0.08);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-marron);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--color-rosa);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            color: var(--color-oscuro);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-rosa);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 181, 160, 0.4) 0%, rgba(212, 153, 138, 0.3) 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            color: white;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(61, 40, 23, 0.3);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(61, 40, 23, 0.3);
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-rosa);
+            color: white;
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-rosa);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-marron);
+            border-color: var(--color-marron);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 153, 138, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 60px 20px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(61, 40, 23, 0.08);
+        }
+
+        .about h2 {
+            font-size: 36px;
+            color: var(--color-marron);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* Products Lines Section */
+        .lines {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .lines h2 {
+            font-size: 36px;
+            color: var(--color-marron);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .lines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .line-card {
+            padding: 40px;
+            background: linear-gradient(135deg, #fff5f1 0%, #fef9f3 100%);
+            border-radius: 15px;
+            border-left: 5px solid var(--color-rosa);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .line-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(212, 153, 138, 0.15);
+        }
+
+        .line-card h3 {
+            font-size: 20px;
+            color: var(--color-marron);
+            margin-bottom: 15px;
+        }
+
+        .line-card p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.7;
+        }
+
+        /* Brands Section */
+        .brands {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .brands h2 {
+            font-size: 36px;
+            color: var(--color-marron);
+            margin-bottom: 40px;
+        }
+
+        .brands-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .brand-badge {
+            background-color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--color-marron);
+            border: 2px solid var(--color-gris);
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .brand-badge:hover {
+            background-color: var(--color-rosa);
+            color: white;
+            border-color: var(--color-rosa);
+        }
+
+        /* Products Grid */
+        .products {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .products h2 {
+            font-size: 36px;
+            color: var(--color-marron);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(61, 40, 23, 0.08);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(212, 153, 138, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #fff5f1 0%, #fef9f3 100%);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-category {
+            font-size: 12px;
+            color: var(--color-rosa);
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .product-name {
+            font-size: 18px;
+            color: var(--color-oscuro);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .product-description {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .product-link {
+            display: inline-block;
+            color: var(--color-rosa);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .product-link:hover {
+            color: var(--color-marron);
+            transform: translateX(3px);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--color-rosa) 0%, var(--color-marron) 100%);
+            padding: 80px 20px;
+            text-align: center;
+            margin: 80px 0 0 0;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            color: white;
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .contact p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 16px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ea853;
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* WhatsApp Flotante */
+        .whatsapp-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .whatsapp-floating:hover {
+            background-color: #1ea853;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .whatsapp-floating svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-oscuro);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-rosa);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(245, 181, 160, 0.2);
+            padding-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .about {
+                margin: 50px 20px;
+                padding: 40px;
+            }
+
+            .products-grid, .lines-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lines h2, .products h2, .about h2 {
+                font-size: 28px;
+            }
+
+            .contact h2 {
+                font-size: 28px;
+            }
+
+            .whatsapp-floating {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">AQUALINA<span>Beauty</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#lineas">Productos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="https://cdn.pixabay.com/video/2025/04/06/270065_large.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Belleza Premium</h1>
+            <p>Cosméticos de Clase Mundial • Distribuidora de Confianza</p>
+            <a href="#contacto" class="cta-button">Contactar Ahora</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="sobre">
+        <h2>Sobre Aqualina Beauty</h2>
+        <p>Somos una distribuidora líder en cosméticos profesionales y productos para el cuidado capilar. Nos comprometemos a ofrecer las mejores marcas internacionales con calidad garantizada y servicio excepcional.</p>
+        <p>Trabajamos directamente con las mejores marcas para traer innovación, calidad y estilo a tu negocio.</p>
+    </section>
+
+    <!-- Product Lines Section -->
+    <section class="lines" id="lineas">
+        <h2>Nuestras Líneas de Productos</h2>
+        <div class="lines-grid">
+            <div class="line-card">
+                <h3>Maquillaje Profesional</h3>
+                <p>Bases, sombras, labiales y accesorios de las mejores marcas. Productos de alta cobertura y larga duración para resultados profesionales.</p>
+            </div>
+            <div class="line-card">
+                <h3>Coloración Capilar</h3>
+                <p>Tintes y coloración con tecnología avanzada. Resultados duraderos, vibrantes y profesionales para todos los tipos de cabello.</p>
+            </div>
+            <div class="line-card">
+                <h3>Tratamientos Capilares</h3>
+                <p>Regeneración, fortalecimiento y brillo duradero. Línea completa de cuidado profesional para cabello saludable y hermoso.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands">
+        <h2>Marcas que Distribuimos</h2>
+        <div class="brands-list">
+            <span class="brand-badge">Vogue</span>
+            <span class="brand-badge">Sheglam</span>
+            <span class="brand-badge">Bloshell</span>
+            <span class="brand-badge">Raquel</span>
+            <span class="brand-badge">Samy</span>
+            <span class="brand-badge">Nailen</span>
+            <span class="brand-badge">Smart</span>
+            <span class="brand-badge">Prosa</span>
+            <span class="brand-badge">Max Factor</span>
+            <span class="brand-badge">Alfaparf</span>
+            <span class="brand-badge">Yellow</span>
+            <span class="brand-badge">Milagros</span>
+            <span class="brand-badge">Angeluz</span>
+            <span class="brand-badge">Schwarzkopf</span>
+            <span class="brand-badge">Lissia</span>
+            <span class="brand-badge">Belotti</span>
+            <span class="brand-badge">Poción</span>
+            <span class="brand-badge">Bigen</span>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="productos">
+        <h2>Productos Destacados</h2>
+        <div class="products-grid">
+            <!-- Maquillaje -->
+            <div class="product-card">
+                <img src="data:image/png;base64,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" alt="Maquillaje Profesional" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Maquillaje</div>
+                    <h3 class="product-name">Bases Premium</h3>
+                    <p class="product-description">Bases de cobertura total con acabado profesional. Larga duración y fijación extrema para un maquillaje perfecto.</p>
+                    <a href="https://wa.me/573192297436?text=Hola%20Aqualina%20Beauty%2C%20quisiera%20informaci%C3%B3n%20sobre%20Bases%20Premium" class="product-link">Solicitar información →</a>
+                </div>
+            </div>
+
+            <!-- Maquillaje 2 -->
+            <div class="product-card">
+                <img src="data:image/png;base64,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" alt="Sombras y Paletas" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Maquillaje</div>
+                    <h3 class="product-name">Sombras Profesionales</h3>
+                    <p class="product-description">Paletas de sombras con pigmentación intensa. Acabados variados para looks creativos y profesionales.</p>
+                    <a href="https://wa.me/573192297436?text=Hola%20Aqualina%20Beauty%2C%20quisiera%20informaci%C3%B3n%20sobre%20Sombras%20Profesionales" class="product-link">Solicitar información →</a>
+                </div>
+            </div>
+
+            <!-- Coloración -->
+            <div class="product-card">
+                <img src="data:image/png;base64,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" alt="Tintes Profesionales" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Coloración</div>
+                    <h3 class="product-name">Tintes Premium</h3>
+                    <p class="product-description">Coloración con tecnología avanzada. Resultados vibrantes, duraderos y profesionales en todos los tonos.</p>
+                    <a href="https://wa.me/573192297436?text=Hola%20Aqualina%20Beauty%2C%20quisiera%20informaci%C3%B3n%20sobre%20Tintes%20Premium" class="product-link">Solicitar información →</a>
+                </div>
+            </div>
+
+            <!-- Coloración 2 -->
+            <div class="product-card">
+                <img src="data:image/png;base64,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" alt="Decolorantes" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Coloración</div>
+                    <h3 class="product-name">Decolorantes y Aclarantes</h3>
+                    <p class="product-description">Productos profesionales para aclaración y decoloración. Fórmulas gentiles con protección capilar.</p>
+                    <a href="https://wa.me/573192297436?text=Hola%20Aqualina%20Beauty%2C%20quisiera%20informaci%C3%B3n%20sobre%20Decolorantes%20y%20Aclarantes" class="product-link">Solicitar información →</a>
+                </div>
+            </div>
+
+            <!-- Tratamientos -->
+            <div class="product-card">
+                <img src="data:image/png;base64,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" alt="Tratamientos Capilares" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Tratamientos</div>
+                    <h3 class="product-name">Serums y Tratamientos</h3>
+                    <p class="product-description">Línea completa de regeneración y fortalecimiento. Fórmulas profesionales con ingredientes premium.</p>
+                    <a href="https://wa.me/573192297436?text=Hola%20Aqualina%20Beauty%2C%20quisiera%20informaci%C3%B3n%20sobre%20Serums%20y%20Tratamientos" class="product-link">Solicitar información →</a>
+                </div>
+            </div>
+
+            <!-- Tratamientos 2 -->
+            <div class="product-card">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAFACAIAAADF7xm+AAAYuElEQVR4nO3daXcb133H8RnsAAEQCwnuFClSsqnNkho7UWInsZM0S3PSPmh7Tk7zpHlfcZ+kpznNOT1ZfGI78RLbiW1ZtkXJ1EaK4r6DIImF2Gf6AOJwBAIgSIAi/ff384QEMJgFM/jhzp0796q/emNUAQDIYjnuFQAANB/hDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgACEe4AIBDhDgAC2Y57BVCuO+ztj7R2BFpaXHaH3appejpbiCXTi+vJqeXNTK5Qmuxn1862+d2l/xeiiTc/e2SeSSTg+enXzxgP//zZo/lownhY473mlxRF0XVd05V8oZjJFxLbuejW9qPlza1Udt+t+Oa53mf7wuZn/u9vDzZTmb1TNmWJVos61B3sCfvaWj0uu81qUTP5QiKdW44lHy5u1LPC1Vap9uczOrny+cNl83vP9oZePN9X+n87k//Ne3cVRfn3b4943Y76V+D1G5NLsWTZsir6YGxuYiFW8aVIoOVUR2tHwON1O5x2m6oo+WIxmc5vpjIrG6nZ1fh2Nl9tu0o0Xc8XtEQ6t7qZGp+PxRLp2itT/05X9juA0TjCvSH1fP3+8NFENL5dz9xCPveLF/rKZmixqj6Pw+dxnIq0vvBM9/+8eydXKB5+jQ9IVVWrqlgdNpfDFmhx9bX7rwx3zq3F/353fjuTr/Yui6oOdraWPTnUHfxsYukoljjQ0XptpNftfOJg9jjtHqe9I9ByabBjYjH28b2FQlGrY4sP5vyp9jsz0Wy+0PQ5N6K1xfni+b6OYEvZ806LzWm3hf3uoa7gtRHl9RsPlzdSNeZjUVWn3eq0u9v87nP9bZ8/XB6dXKkx8aF3Oo4C4d6osem1Tx4sVnzJ73H+60vP1jmf/kjry5f6rdZaFWVWi2qxqAdexWbra/f/y7Wzf/l8am2r8o9Wb7vfaS8/tIa6Aof+ntdY4sXByPNnu2q8V1WVsz2hsM/9pxsP84Um57vdZrk02H5j/ATlV2+b75XLA7aaB5KiKKqq7DtNmavDncuxZLXfg6bvdDSIcD8Rwn73d59M9omF2IP59Y1kRtcVn9vR1+4/d6rN47Q/zbUqnSxbVNXlsEUCnpH+tq6Qt/SSy2H7/pXB3388XrE0Pdwd3Puk1+3oCLas1CwqHnSJvW0+c7Knc4VPHyzNReP5ohbyuq4MdfS2+0svhf3uly70vzM6fbCPoA4j/W1j02vpXK3C+/++f8/80GGz/uJ7F4yH1+8v3plZq72UOisuQj5XWbLPrm7dn1uPxtO5fNFpt4b87r52/5nuoN1mrb0sVVU8TvvFgci5U23GS0PdwWrhfuidjiPCBdUT4RvP9pi/kH8bm/tgbG51cztf0ApFbSOZuT21+tsP7t+fW9f1p71umq5vZ/PTK1uv35i89WjVeN7ttD1/pkKR2W6z9u1EqqIo6exu6lX8/jeyxBee6Tb+zxe0P33ycGIxlskVikVtbWv7LzenZle3jAkGOlo799RUNM5mtTx3uqPpsz2csgPp43sLb92cno8mMrmCpuvpXGEhmvj43sJv3rv7xdRqUat1MOm6ksrkrz9YSJl+Tf0eZ8WJG9/paDrC/fi1t3rM1aNTy5vjlS6RFYvah3fnj7d697OJpdXN3VLY6a7A3pOJwc5W607dUa5QNF9vHOgIHLRaqcYSu0LegNdlvDQ2s1Z24VTXlY/uLeim38OR/jaleYxwfKYv3OJ6qidVFbW1ejp3TnQURZla3rw7G604Zb6g3RhfWool952nrivJTM54WO26RXN3OpqCcD9+vW0+88M7M5W/kCeEOS9UVe0J+8omGOraLanNrcWnVza1nXh12p8o3zW4xO4nF/1oaWPve1OZvLlOoMuUfY2bWIiV8t1qUS8PHX/h/SgOJFVVfK7ddj4bycpNX5q+09E46tyPX9C32zymqOnRKlcpT4iy+tOQ36WYLie3uOydwd0AnVnZyuaLKxspI1WHuoIzK1vKQVRbYsC7W0VQKGrV2juuJzKdpop7l8OWqVk/Xr/tbP7B3HqpSvpMT+j2o9VEOrfvuw6np833yx8+V/ZkNl/473fuGA9DTT2QjDp3z85JSVHT78+u753yKHY6Gke4Hz+3Y3cvZHMF7elXqx+EuTpVUZSyBhJDXUF15xS8WNRKjetnVraM73lfu99hsx6oNWe1JbpMi87mq86wLMqbGO6Kotx6tHK2N2SzWiyqenm444Mv5po150OocSC5nbaff/d82fS5QvHXb4/tnU/FH5JcofjO6Iy5isZwFDsdjaNa5mQ50bleB/Pp+fx6olRFO2O6qmm1qIOdgae5SmpZfW9TP+J0rnBvp9ZouCvY2lL5euPT19wDaSuV/d2H44vriYqvnsCdDoWS+0lgbkXnctgsqlpf4f0A398mftXLrqCaS8Ehnyvo273CaZyJpzL56NZ2W6un9HCoO/hgvsLZ/UGXmDFdW3baqzbsKzu3yDT7ivTtqbVn+9rsNouqqleHOxeqJGCD6mkKedgDaX+tLc5/emH49RuT8e3yuq8j2uloHCX347dhuqvbalGN70NtheLu93ZvawSL5Yk9W2jezTtl9z2ab0kf6g4Z/2u6PrcWNx6ay3GdwRav6wD34ldb4mZyN2hsVku1UnPYFD2ZXKGJdTIl2XzBaKU+2BkIefe5Y/no7DmQdtcknS28+uatV9+89dfbM/vOZyGaePXNW79+e+zDu/PGz0OLy/7K5VNq+XnQUe10NI6S+/GbjyauDHcaD8/1t5kb/1WTNnUMsrcdnvfJZ2rfYnMg5taEuq4vrj9uTqeqypDp1Nuiqv/xygWliqHugLkB++GWuLieeO50xHhpsDOw9+Z4j8tu/m2op/HfIYxNr430t5XOHp55snOVp6nsQBrpb1vdnD303HKF4v25dZvVYtxMEPK5n+kN3Z/bLYAf3U5H4yi5H7+1rW1zg5DTXYGK931YrZZrIz1GJYP5Rny/x1lWbjU3Psvmi3vPpg/n+bNdkcDuicWjpU2j86mukNdTd1tvcy3toZe4FEtumlrmXRxo33uLzTee7TEXNu9VaffdoFyhODb9OLasx9emu+xAGuoKnukJ1Zi+Hndno0lTE6BLgxGL6fM8op2OpiDcT4SP7z/RrdW3L/a/eL6vvdVjs1psVkvQ67o0GPm3l54d6W8zvlnTy1vmGtXvXxnsCnntNovP7fiHM13m61eTlRqA18+iqm6nbaCj9SfPD10c3C0pp7OFG6ZuQw701Q14XeHqHa7VuURFUcy9+tht1p+8MDTcHXTabaXarR9cHRzo2O3KamZlq3Y/WY24MxNteoXPIZQdSC9d6PvOxf7OYIvDZrWoqsdlD/sOVmukafqYqWsEr9txuitgPGziTkfTUS1zIqzH03+9Pfvyc6eMct/Z3tDZ3lrFrmQm98XUmlEv0dri/PHzQ3snS+cKtw97LlyxSVxJJld46+aU0c2L1aKaY/TebPSjewtlb7FZLT9/+bx95+b4oa7gery8C9n6l1gyH03cGF8yupfxOO3fvthf8e2xRPr9sSNsp1goarenVs3dITRXtU9mcmnjvdu7dS97D6Sh7uBQYx0AjM/Hrgx1GKeMFwcjDxc3lObtdKXurcOBUHI/KWZXt/748UTFQ99Q1HTN1B/I5w+Xanc4Fd/OvvnpI3O33U0xtxb/3Yfj5nqh/kiruSOqicUK5wqFoja9smk8PN0V2HNx7gBLNHwxtfrurZkaFxV0XZlYiL12/WH+iNtZ35uNNv2jPoR6DiRFUTRNn1uN156mpFDU7ppudg16XaVKv6Pe6WgQJfcTJJZI//6j8e6w71TE3xFs8Th3BuvIFWKJx4N1mO8E0XXl+v3F8fnY2d5QR7DF53babRZN0zO5wno8PbsWf7S0UbtzqH3pemnEhmI2X0xsZ6Px9ORShbEvzGXDrVS22r2Rk4sbZ3YaV3ic9u6Qb2/DwTqXaDa1vDm7Fh/qCvS2+cN+t8ths6pqNl9MpLNLsdTDxdhBB+s4nKKm33q0em2k5yksq7adA8l7KtJqHEi6pucKWiKd3UhmlmLJhWiixp1fZe7Orl8cjBhdkl06HZlbizdxp+MoqL96Y/S41+FL7GfXzi7HkrX7c69/sA4AaBaqZQBAIMIdAASizr1RFwbaLwy0H/daAMATCPeG/OGj8eNeBQCogGoZABCIcAcAgQh3ABCIcAcAgbig2qifXTvbVqk7pHxRS2fz0a30o+XN2dWnNICkqqojfeHTXcGA1+nYuTV8annz3Vv79+LdiP/8x0tG54uvXZ9Y3TzRN219udYWOBzC/ajYrRa7x+n3OE93BZZiyXdGp+u/2/vQvnOx39xpH4CvLKplnoaukPeVywNHvZSQz0WyAyih5N5MxkCXNqslEmj51vlen/vx0GJdIW9XyHtEIwGVtLfuDjmUzhZeuz6RSFcYqx7AVwHhfiQKRW1xPfH3O/M/+tpp48mjDne7bfc8bCOZeZrJ/l9/vv3UlgWgHoT7ETIPWKwoisux+2mXXdPLF7RLpyNdIa/LYVvZSL1+Y7L0UmfIe6Y7GAm0eJx2q1XN5Ysbycx8NDE+v26uwX/hme6yLhC6w15j9IN3Rqend8akjwRazvaEIkFPi9NutVqyuWI0vv1oafPR8qaul3cObLdanukL97X7A16X02bVdD2VySczubXN7YVoYnUrZbyj9iXKOrei4qxSmfxzpzt623wepz1XKC7FkjcfrmymMua3uBy2nrCvu83b5vN43Xab1VLQ9HQ2vx5PTy49vavZwIlCuB+h4JNDmlUbhq0/0nphoN0YmrL0x261vHSx3zzSjaIoLoetVL1zcaD9/S9m56MH6BfbZrV863xv2bhobqetr93f1+4f6Q+/MzpjHmvCabf+9OtnzEOzWhS1tcXZ2uLsCfsuD3W88emjxf065m5wK3rCvguDEWMcH5fDNtgZ6G3zvXb94YZp9NQffe106MmP2m5VS1ezBzsDc2vxt0entcb6tQe+dLigeiRsVkt32Putc73mJ6vVyZQNOqyoqqIoL18eKMtEM5fD9r0rg5FAS7UJ9vruc6dqjHgZCbT84OqgeXDnCwPtZYNuH0KDW3FluNNIdoPdZj3QaHZ97f4rQ531Tw/IQMm9mWoMAbq8kapR4T4fTdwYX4xv58I+d3/EXyqfGq9OLm7cnFxJ5wpdIe+L53tL1TtWi/rNcz2/+3BcUZRPHix+8mDx4kD78zupt7iefOPTSWMOAx2t/e3+0v+6rn86sTy5uJErFNtbPS+e7/N5HIqihP3ukf62senH4/aF/R7j7e/dnp1bixc1ze20e132zpC3r92/txqnzEG3oqKx6bU7M2u6onxzpKc/8vh3ojvstVktxkjQyUx+YT05vxZPZnLb2YJFUXwex4WByPDOUEEj/eHPHy7vu8KAJJTcn4aVjdTbN6ervZrM5N66ObWRyBSL2upm6tPxJfMAZpvJzPtjs/HtbL5QnF3dMo9BHPK5g15XPSswbJrh3dnoF1Or29l8oagtxZLXH+zO0BgOTVGUoqYZ/2dyhXxRK2p6Mp1b3kiNTq788eOJfS8ON74VC9HEJw8WU5n8diZ/3TTclaqqRjMkRVHe+nzqxoPFpVgysZ0rFrV8UYslMn8bmzOGGHTYrAFvo2chwJcLJfejUihq6VwhurU9tbxpXM+s6P7selmNcNhUgzyzGjeXOMsuD4b9bnPtczXmYvj5U+3nT1XugD7oc1ktaikT59cSp3ZKyj/82mlN0xPpXGI7G0tmlmLJpfWktl9BuPGtmFzaHXN5O/PE2NM2U3WNzWoZ7g6WLvy6HTarxbJ3FGaPw76h7P9BAWIQ7s1ktHM/kL3DNzvsu4PKZ3JPhFpR03OFotG1gHnKGuqcTFEUl8OWyuQVRRlfWA/5XM/2tZWC0mJ5fDW1t91/aTCS2M69PTode7I5UNO3ImkK9LKRvo34bnHZf/z8kN+zT8HcuqfuHpCNI/74pfe0osmZGgi6HHbzS1aLamRi2ZQ11DmZoihGM0RdVz66t/Db9+99dG9hfCG2vJFKZnYbzvs8ju9c6q9/oYfbCs1UNVTN82e79012ZacNEvDVQcn9JCiv31hPpFtcj9OwP+L/bGLJeMm4qPh4ynitsrN5MmOGo5Mrnz9crnPNkpncvdmo8dDrdvzztbNOu1VRlKDX5Xba0tnK7TuPYisq6g57jf8nFmKjkyupbF7TdKtF/cX3Lprb/wBfKYT7STS5uGE0bgl6XS9d7BudXMnkil3Blm+M9BiTxRLpeircFUV5uBjrjzye4aXTEU3Xp5Y3k5m8RVXcDrvHZe8IeLpCvsX1xO2p1dJkV4c7gz7X3Fo8Fs+kc/l0rmC1WMI+t7ltYoW67aPciopU0zrki1quoKmKEva7rw53kuz4KiPcT6Kp5c2zvaGe8ON2hGe6Q+Z2LCWappvbnNQ2vbI1txbva/crimJR1avDnVeHKzT9XtlMGf/bbdZTkdZTkaqt1JPpXOrJi5xHvRUVrWwkjfOAc/1t5/rbGpkbIAZ17ifUO6PTM9Xvm8/mi2+PTq9spKpNsNe7t2bMjU8alC9qH4zN7TtZ07dirxvjSxX7Ur47G83mq1YZAeJRcj+h8gXt7ZvTXSHvcE8w0tricdmtFjWXL24mM3NVemWprVDU3rs9e3cmeqYnFAl4vG6HzWrJF4rpXGE7k1/d3F6KJVdNJffPJpbmo/HusC/S6vG47G6HzWJR84XiViq3FEvcn1uvXWw/oq3YayuV/f2H45eHOnrbfC6nLV/Q1uPp+3PR6ZWtITpAxleY+qs3Ro97HQAATUa1DAAIRLgDgECEOwAIRLgDgECEOwAIRLgDgECEOwAIRLgDgECEOwAIRLgDgECEOwAIRLgDgECEOwAIRLgDgECEOwAIRLgDgECEOwAIRLgDgECEOwAIRLgDgECEOwAIRLgDgECEOwAIRLgDgECEOwAIRLgDgECEOwAIRLgDgECEOwAIRLgDgECqruvHvQ4AgCaj5A4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAhHuACAQ4Q4AAtmOewUqe/XNW8e9CgBQr1/+8LnjXoVylNwBQCDCHQAEUnVdP+51AAA0GSV3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABCIcAcAgQh3ABDo/wEkx/ErM3jtbwAAAABJRU5ErkJggg==" alt="Cuidado Capilar Completo" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Tratamientos</div>
+                    <h3 class="product-name">Sistemas de Cuidado Integral</h3>
+                    <p class="product-description">Champú, acondicionador y máscaras profesionales. Sistemas completos para cabello saludable y brillante.</p>
+                    <a href="https://wa.me/573192297436?text=Hola%20Aqualina%20Beauty%2C%20quisiera%20informaci%C3%B3n%20sobre%20Sistemas%20de%20Cuidado%20Integral" class="product-link">Solicitar información →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="contact-content">
+            <h2>¿Necesitas Información?</h2>
+            <p>Contáctanos a través de WhatsApp para solicitar información sobre nuestros productos, precios y disponibilidad. Estamos listos para ayudarte.</p>
+            <a href="https://wa.me/573192297436?text=Hola%20Aqualina%20Beauty%2C%20me%20gustaría%20información%20sobre%20sus%20productos%20y%20catálogo" class="whatsapp-btn">💬 Contactar por WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/573192297436?text=Hola%20Aqualina%20Beauty%2C%20me%20gustaría%20información%20sobre%20sus%20productos%20y%20catálogo" class="whatsapp-floating" title="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.835 1.172c-1.495.784-2.788 1.86-3.816 3.155-1.029 1.294-1.597 2.79-1.607 4.34-.01 1.549.38 3.07 1.15 4.408l.033.066-1.36 4.993 5.119-1.341.07.037a9.047 9.047 0 004.568 1.141h.004c2.364 0 4.596-.722 6.532-2.087 1.936-1.365 3.427-3.281 4.37-5.374.943-2.093 1.466-4.38 1.486-6.748 0-2.367-.722-4.596-2.087-6.531C21.88 6.72 20.028 5.26 17.935 4.317c-2.093-.943-4.38-1.466-6.748-1.486m11.051 18.218c-1.577 1.576-3.8 2.441-6.157 2.441-1.849 0-3.597-.529-5.127-1.529l-.367-.218-3.805.998.997-3.648-.227-.363A9.002 9.002 0 012.064 12.28c0-2.357.865-4.58 2.441-6.157 1.576-1.576 3.8-2.441 6.157-2.441 2.358 0 4.58.865 6.157 2.441 1.575 1.577 2.44 3.8 2.44 6.157-.001 2.358-.866 4.58-2.441 6.157"/>
+        </svg>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#sobre">Sobre Nosotros</a>
+                <a href="#lineas">Productos</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
+            <div class="footer-bottom">
+                <p>Aqualina Beauty - Distribuidora de Cosméticos Premium © 2024 - Medellín, Colombia</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
